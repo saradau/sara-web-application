@@ -1,0 +1,52 @@
+.nasaContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+.nasaApod {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 2rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+.nasaApodDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0rem 2rem 2rem 2rem;
+  gap: 2rem;
+}
+
+.nasaApod:hover {
+  transform: scale(1.03);
+}
+
+.nasaApod h3 {
+  width: 100%;
+  border-radius: 2rem 2rem 0 0;
+  padding: 1rem 0;
+  font-family: var(--font-whimsical);
+  font-weight: bold;
+  text-align: center;
+  background-color: #7579a2;
+}
+
+.nasaApod img {
+  object-fit: cover;
+  width: 500px;
+  height: 500px;
+  border-radius: 0.5rem;
+}
+
+.nasaApod p {
+  color: var(--color-primary);
+  font-family: var(--font-whimsical);
+}

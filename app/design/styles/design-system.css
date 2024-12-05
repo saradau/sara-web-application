@@ -1,0 +1,90 @@
+:root {
+    --color-coral: #FE4F4C;
+    --color-teal: #06686B;
+    --color-yellow: #F0CF4A;
+    --color-purple: #6B30FA;
+    --color-pink: #FE77D6;
+    --color-white: #FFFFFF;
+    --color-black: #000000;
+    --color-cyan: #06686B;
+}
+
+@font-face {
+    font-family: 'Futura';
+    src: url('/fonts/futura.ttf') format('ttf');
+}
+
+.heading-1 {
+    font-family: 'Futura';
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 1;
+    /* TODO: need this? */
+    /* margin-bottom: 18px; */
+}
+
+.heading-2 {
+    font-family: 'Futura';
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 1.4;
+    /* TODO: need this? */
+    /* margin-bottom: 28px; */
+}
+
+.body-text {
+    font-family: 'Futura';
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.input {
+    width: 100%;
+    height: 48px;
+    background: transparent;
+    border: 2px solid;
+    border-radius: 24px;
+    padding: 0 20px;
+    font-family: 'Futura';
+    font-size: 16px;
+    color: var(--color-white);
+    outline: none;
+}
+
+.input::placeholder {
+    color: var(--color-white);
+    opacity: 0.5;
+}
+
+.input:focus {
+    border-width: 3px;
+}
+
+.input.error {
+    border-color: var(--color-coral);
+}
+
+.button {
+    width: 100%;
+    height: 48px;
+    border: none;
+    border-radius: 24px;
+    font-family: 'Futura', sans-serif;
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.button:hover {
+    transform: scale(1.02);
+}
+
+.link {
+    color: var(--color-white);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.link:hover {
+    opacity: 0.8;
+}

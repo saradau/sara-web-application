@@ -13,13 +13,21 @@
   --border-radius: 0.5rem;
 
   --font-titles: "Rubik", serif;
-  --font-body: system-ui, sans-serif; /* system-ui matches the user's system font */
+  --font-whimsical: 'Papyrus', 'Comic Sans MS', cursive;
+
+  --font-body: system-ui, sans-serif;
+  /* system-ui matches the user's system font */
 }
 
 body {
+  height: 100dvh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
   color: var(--color-primary);
   background-color: var(--color-background);
   font-family: var(--font-body);
+  overflow-x: hidden;
 }
 
 /* Layout */
@@ -67,11 +75,6 @@ footer {
   direction: rtl;
 }
 
-/* Text */
-p {
-  margin: 1rem 0;
-}
-
 ul,
 ol {
   margin-top: 0.5rem;
@@ -87,8 +90,8 @@ h3,
 h4,
 h5,
 h6 {
-  margin-top: 1rem;
-  font-family: var(--font-titles);
+  /* font-family: var(--font-titles); */
+  font-family: sans-serif;
   font-weight: 500;
   font-optical-sizing: auto;
 }
@@ -127,6 +130,7 @@ a {
   color: var(--color-accent);
   text-decoration: underline;
 }
+
 a:hover {
   text-decoration: none;
 }
@@ -137,6 +141,7 @@ table {
   border-spacing: 0px;
   border-collapse: collapse;
 }
+
 table td,
 table th {
   padding: 0.5rem;
@@ -150,8 +155,14 @@ textarea,
 select {
   padding: 0.2em 0.5em;
   border: 1px solid var(--color-secondary);
-  border-radius: var(--border-radius);
+  border-radius: 25px;
 }
+
+input {
+  height: 35px;
+  font-size: 20px;
+}
+
 
 fieldset {
   margin-top: 1.5rem;
@@ -164,7 +175,8 @@ fieldset {
   height: 2rem;
   color: white;
   border: none;
-  border-radius: 1000px; /* Make the button round */
+  border-radius: 1000px;
+  /* Make the button round */
   cursor: pointer;
   font-weight: bold;
 

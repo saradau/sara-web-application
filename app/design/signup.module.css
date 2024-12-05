@@ -1,0 +1,31 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: 100%;
+    background-color: var(--color-black);
+    gap: 16px;
+}
+
+/*TODO: ask about desktop responsivity?? */
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0px 30px;
+    gap: 27px;
+    color: var(--color-white);
+}
+
+.textcontainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: left;
+    gap: 14px;
+}
+
+.decoration {
+    padding: 15px;
+    padding-bottom: 0px;
+}

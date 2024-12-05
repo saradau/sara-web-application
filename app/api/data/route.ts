@@ -5,14 +5,14 @@ import {
 } from "@/lib/config";
 import { createClient as createDatabaseClient } from "@supabase/supabase-js";
 import { type NextRequest } from "next/server";
-import { makeTeamDistribution } from "../../logic";
+import { makeTeamDistribution } from "../../(with-navbar)/random/logic";
 import type {
   Group,
   PromptCompany,
   PromptIdea,
   Student,
   Team,
-} from "../../types";
+} from "../../(with-navbar)/random/types";
 
 function getDatabaseClient() {
   return createDatabaseClient(
