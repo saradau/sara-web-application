@@ -19,7 +19,7 @@ export default function Home() {
           <div className={styles.card}>
             <Link href="/tic-tac-toe">
               <Image
-                src="/tictactoe.png"
+                src="/pictures/tictactoe.png"
                 alt="TicTacToe Game"
                 width={250}
                 height={250}
@@ -30,7 +30,7 @@ export default function Home() {
           <div className={styles.card}>
             <Link href="/nasa">
               <Image
-                src="/nasa.png"
+                src="/pictures/nasa.png"
                 alt="NASA Exploration"
                 width={250}
                 height={250}
@@ -41,7 +41,7 @@ export default function Home() {
           <div className={styles.card}>
             <Link href="/design">
               <Image
-                src="/design.png"
+                src="/pictures/design.png"
                 alt="Design Concepts"
                 width={250}
                 height={250}
