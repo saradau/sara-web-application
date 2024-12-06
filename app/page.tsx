@@ -21,9 +21,8 @@ export default function Home() {
               <Image
                 src="/tictactoe.png"
                 alt="TicTacToe Game"
-                width={300}
-                height={200}
-                className={styles.cardImage}
+                width={250}
+                height={250}
               />
             </Link>
             <h4 className={styles.cardTitle}>TicTacToe Game</h4>
@@ -33,9 +32,8 @@ export default function Home() {
               <Image
                 src="/nasa.png"
                 alt="NASA Exploration"
-                width={300}
-                height={200}
-                className={styles.cardImage}
+                width={250}
+                height={250}
               />
             </Link>
             <h4 className={styles.cardTitle}>NASA Exploration</h4>
@@ -45,9 +43,8 @@ export default function Home() {
               <Image
                 src="/design.png"
                 alt="Design Concepts"
-                width={300} //TODO: why need here too?
-                height={200}
-                className={styles.cardImage}
+                width={250}
+                height={250}
               />
             </Link>
             <h4 className={styles.cardTitle}>Design Concepts</h4>

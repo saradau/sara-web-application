@@ -1,23 +1,19 @@
 .container {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    /* TODO: space between? */
-    height: 100vh;
-    /* TODO: space between? */
+    justify-content: flex-start;
+    min-height: 100%;
     background-color: var(--color-black);
-    gap: 80px;
 }
 
 .main {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    flex-grow: 1;
-    padding: 0px 35px;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0px 30px;
     gap: 67px;
     margin-top: 113px;
-    /* TODO: space between? */
     color: var(--color-white);
 }
 
@@ -29,22 +25,13 @@
     gap: 24px;
 }
 
-/* TODO:why does it look so weird? + font */
 .homeButton {
     display: flex;
     align-items: center;
+    width: fit-content;
     background-color: var(--color-black);
     color: var(--color-coral);
     border: 2px solid var(--color-coral);
-    border-radius: 25px;
-
-
-    font-family: "Futura-Medium";
-    /* TODO: space between? */
-    font-size: 20px;
-    padding: 4px 22px 4px 22px;
-    font-weight: 500;
-    cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 

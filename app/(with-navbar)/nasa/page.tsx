@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Apod, getApods } from "./utils";
+import { Apod, getData } from "./utils";
 import styles from "@/app/(with-navbar)/nasa/Nasa.module.css";
 
 const APODS_COUNT = 5;
@@ -22,10 +22,11 @@ const ApodComponent: FC<ApodComponentProps> = ({ apod }) => {
 };
 
 export default async function NasaPage() {
-  const apods = await getApods(APODS_COUNT);
+  const apods = await getData(APODS_COUNT);
 
   return (
     <div className={styles.nasaContainer}>
+      <h1 className={styles.nasaHeader}>Let&apos;s explore space together!</h1>
       {apods.map((apod) => (
         <ApodComponent key={apod.url} apod={apod} />
       ))}

@@ -28,7 +28,7 @@ export default function ErrorPage() {
         </button>
       </main>
       <img
-        src="/error_circles.svg"
+        src="/pictures/error_circles.svg"
         alt="Geometric Background"
         className={styles.decoration}
       />

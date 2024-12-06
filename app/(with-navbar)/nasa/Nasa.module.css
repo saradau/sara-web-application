@@ -29,6 +29,24 @@
   transform: scale(1.03);
 }
 
+.nasaHeader {
+  font-family: var(--font-whimsical);
+  font-weight: bold;
+  text-align: center;
+  font-size: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: transform 0.3s ease-in-out;
+}
+
+.nasaHeader:hover {
+  transform: scale(1.03);
+}
+
 .nasaApod h3 {
   width: 100%;
   border-radius: 2rem 2rem 0 0;

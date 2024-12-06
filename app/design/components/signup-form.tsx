@@ -2,26 +2,25 @@
 
 import React, { useState } from "react";
 import styles from "./signup-form.module.css";
-import { supabase } from "@/app/design/supabaseClient";
-import { useRouter } from "next/navigation";
 
 type Inputs = "email" | "password" | null;
 type OnSubmitFunction = (email: string, password: string) => void;
 
 interface SignUpFormProps {
   onSubmit: OnSubmitFunction;
+  isLoading: boolean;
 }
 
-export const SignUpForm: React.FC<SignUpFormProps> = () => {
+export const SignUpForm: React.FC<SignUpFormProps> = ({
+  onSubmit,
+  isLoading,
+}) => {
   const [currentFocus, setCurrentFocus] = useState<Inputs>(null);
-  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
   const [errors, setErrors] = useState<{ email?: boolean; password?: boolean }>(
     {}
   );
-  const [loading, setLoading] = useState(false); //TODO: do not need these?
-  // const [message, setMessage] = useState("");
-  const router = useRouter();
 
   const validateForm = () => {
     const newErrors: { email?: boolean; password?: boolean } = {};
@@ -38,34 +37,13 @@ export const SignUpForm: React.FC<SignUpFormProps> = () => {
     }
 
     setErrors(newErrors);
-    return !newErrors.password && !newErrors.email; //TODO: not keys?
+    return !newErrors.password && !newErrors.email;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!validateForm()) {
-      return;
-    }
-
-    setLoading(true);
-    // setMessage("");
-
-    try {
-      const { error } = await supabase.auth.signUp({
-        email,
-        password,
-      });
-
-      if (error) {
-        router.push("/error");
-      } else {
-        router.push("/success");
-      }
-    } catch (error) {
-      //TODO: need catch?
-      router.push("/error");
-    } finally {
-      setLoading(false);
+    if (validateForm()) {
+      onSubmit(email, password);
     }
   };
 
@@ -81,7 +59,8 @@ export const SignUpForm: React.FC<SignUpFormProps> = () => {
                 email: true,
               });
             }}
-            className={`${styles.input} ${errors.email ? styles.error : ""} ${
+            className={`${styles.input} ${errors.email ? styles.error : ""} 
+            ${
               (!currentFocus || currentFocus !== "email") &&
               email &&
               !errors.email
@@ -93,6 +72,7 @@ export const SignUpForm: React.FC<SignUpFormProps> = () => {
             onFocus={() => setCurrentFocus("email")}
             onBlur={() => setCurrentFocus(null)}
             onChange={(e) => setEmail(e.target.value)}
+            disabled={isLoading}
           />
         </div>
         <div className={styles.inputContainer}>
@@ -112,18 +92,23 @@ export const SignUpForm: React.FC<SignUpFormProps> = () => {
             onBlur={() => setCurrentFocus(null)}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            disabled={isLoading}
           />
         </div>
 
         <p className={styles.signin}>
           Already have an account?{" "}
-          <a href="/signin" className={styles.link}>
+          <a href="#signin" className={styles.link}>
             sign in
           </a>
         </p>
       </div>
 
-      <button type="submit" className={styles.signupButton}>
+      <button
+        type="submit"
+        className={styles.signupButton}
+        disabled={isLoading}
+      >
         sign up!
       </button>
     </form>

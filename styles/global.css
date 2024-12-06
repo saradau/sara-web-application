@@ -7,6 +7,9 @@
   --color-background: #f5f5f5;
   --color-accent: #535bf2;
 
+  --color-white: #FFFFFF;
+  --color-light-gray: #f4f4f4;
+
   --border-radius: 0.5rem;
 
   --font-titles: "Rubik", serif;
@@ -94,19 +97,4 @@ h5 {
 
 h6 {
   font-size: 0.83em;
-}
-
-/* Forms */
-input,
-button,
-textarea,
-select {
-  padding: 0.2em 0.5em;
-  border: 1px solid var(--color-secondary);
-  border-radius: 25px;
-}
-
-input {
-  height: 35px;
-  font-size: 20px;
 }

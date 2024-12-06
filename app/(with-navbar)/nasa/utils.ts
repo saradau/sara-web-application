@@ -8,7 +8,7 @@ export interface Apod {
 const apiKey = process.env.NASA_API_KEY;
 const endpoint = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`;
 
-export async function getApods(count: number): Promise<Apod[]> {
+export async function getData(count: number): Promise<Apod[]> {
   const url = `${endpoint}&count=${count}`;
   const response = await fetch(url);
 

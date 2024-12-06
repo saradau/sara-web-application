@@ -11,6 +11,7 @@ interface SquareProps {
 
 function Square({ value, onSquareClick }: SquareProps) {
   const squareColor = value ? (value === "X" ? "#bf2d2d" : "blue") : undefined;
+
   return (
     <button
       className={`${styles.square}`}

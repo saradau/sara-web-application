@@ -7,9 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="futura-font" style={{ height: "100%", overflow: "clip" }}>
-      {children}
-    </div>
-  );
+  return <div style={{ height: "100%", overflow: "clip" }}>{children}</div>;
 }

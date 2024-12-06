@@ -1,10 +1,37 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import styles from "./signup.module.css";
 import { SignUpForm } from "@/app/design/components/signup-form";
+import { supabase } from "@/app/design/supabaseClient";
+import { usePathname, useRouter } from "next/navigation";
 
 export default function SignUpPage() {
+  const [loading, setLoading] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const handleSignUp = async (email: string, password: string) => {
+    setLoading(true);
+
+    try {
+      const { error } = await supabase.auth.signUp({
+        email,
+        password,
+      });
+
+      if (error) {
+        throw error;
+      } else {
+        router.push(pathname + "/success");
+      }
+    } catch (error) {
+      router.push(pathname + "/error");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className={styles.container}>
       <img
@@ -23,7 +50,7 @@ export default function SignUpPage() {
           </p>
         </div>
 
-        <SignUpForm />
+        <SignUpForm onSubmit={handleSignUp} isLoading={loading} />
       </main>
     </div>
   );
