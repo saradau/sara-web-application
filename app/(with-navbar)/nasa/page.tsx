@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { Apod, getData } from "./utils";
 import styles from "@/app/(with-navbar)/nasa/Nasa.module.css";
 
@@ -21,8 +21,16 @@ const ApodComponent: FC<ApodComponentProps> = ({ apod }) => {
   );
 };
 
-export default async function NasaPage() {
-  const apods = await getData(APODS_COUNT);
+export default function NasaPage() {
+  const [apods, setApods] = useState<Apod[]>([]);
+
+  useEffect(() => {
+    getData(APODS_COUNT)
+      .then((data) => {
+        setApods(data);
+      })
+      .catch();
+  }, []);
 
   return (
     <div className={styles.nasaContainer}>
