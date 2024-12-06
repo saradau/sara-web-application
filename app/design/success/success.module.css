@@ -1,0 +1,30 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* TODO: space between? */
+    height: 100vh;
+    /* TODO: space between? */
+    background-color: var(--color-black);
+    /* TODO: space between? */
+    gap: 101px;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    flex-grow: 1;
+    padding: 0px 35px;
+    margin-top: 113px;
+    /* TODO: space between? +font */
+    color: var(--color-white);
+    gap: 24px;
+}
+
+.decoration {
+    padding: 15px;
+    margin-bottom: auto;
+    /* TODO: space between? */
+}

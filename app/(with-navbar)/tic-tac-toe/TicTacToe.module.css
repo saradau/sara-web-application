@@ -1,4 +1,3 @@
-/*TODO: different fonts? */
 .homeContainer {
   display: flex;
   flex-direction: column;
@@ -76,7 +75,6 @@
   font-size: 2rem;
   font-weight: bold;
   background: #f4f4f4;
-  transition: all 0.3s ease;
   cursor: pointer;
 }
 

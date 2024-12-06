@@ -1,43 +1,71 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styles from "./signup-form.module.css";
-
-interface SignUpFormProps {
-  onSubmit: (email: string, password: string) => void;
-}
+import { supabase } from "@/app/design/supabaseClient";
+import { useRouter } from "next/navigation";
 
 type Inputs = "email" | "password" | null;
+type OnSubmitFunction = (email: string, password: string) => void;
 
-export const SignUpForm: React.FC<SignUpFormProps> = ({ onSubmit }) => {
+interface SignUpFormProps {
+  onSubmit: OnSubmitFunction;
+}
+
+export const SignUpForm: React.FC<SignUpFormProps> = () => {
   const [currentFocus, setCurrentFocus] = useState<Inputs>(null);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [errors, setErrors] = useState<{ email?: string; password?: string }>(
+  const [errors, setErrors] = useState<{ email?: boolean; password?: boolean }>(
     {}
   );
+  const [loading, setLoading] = useState(false); //TODO: do not need these?
+  // const [message, setMessage] = useState("");
+  const router = useRouter();
 
   const validateForm = () => {
-    const newErrors: { email?: string; password?: string } = {};
-
-    if (!email) {
-      newErrors.email = "Email is required";
-    } else if (!/\S+@\S+\.\S+/.test(email)) {
-      newErrors.email = "Invalid email format";
+    const newErrors: { email?: boolean; password?: boolean } = {};
+    if (!email || !/\S+@\S+\.\S+/.test(email)) {
+      newErrors.email = true;
+    } else {
+      newErrors.email = false;
     }
 
     if (!password) {
-      newErrors.password = "Password is required";
+      newErrors.password = true;
+    } else {
+      newErrors.password = false;
     }
 
     setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    return !newErrors.password && !newErrors.email; //TODO: not keys?
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (validateForm()) {
-      onSubmit(email, password);
+    if (!validateForm()) {
+      return;
+    }
+
+    setLoading(true);
+    // setMessage("");
+
+    try {
+      const { error } = await supabase.auth.signUp({
+        email,
+        password,
+      });
+
+      if (error) {
+        router.push("/error");
+      } else {
+        router.push("/success");
+      }
+    } catch (error) {
+      //TODO: need catch?
+      router.push("/error");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -47,8 +75,16 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSubmit }) => {
         <div className={styles.inputContainer}>
           <input
             type="email"
+            onInvalid={() => {
+              setErrors({
+                ...errors,
+                email: true,
+              });
+            }}
             className={`${styles.input} ${errors.email ? styles.error : ""} ${
-              (!currentFocus || currentFocus !== "email") && email
+              (!currentFocus || currentFocus !== "email") &&
+              email &&
+              !errors.email
                 ? styles.focused
                 : ""
             }`}
@@ -65,7 +101,9 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({ onSubmit }) => {
             className={`${styles.input} ${
               errors.password ? styles.error : ""
             } ${
-              (!currentFocus || currentFocus !== "password") && password
+              (!currentFocus || currentFocus !== "password") &&
+              password &&
+              !errors.password
                 ? styles.focused
                 : ""
             }`}

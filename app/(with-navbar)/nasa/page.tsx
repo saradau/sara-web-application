@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 import { Apod, getApods } from "./utils";
-import styles from "@/app/nasa/Nasa.module.css";
+import styles from "@/app/(with-navbar)/nasa/Nasa.module.css";
 
-const APODS_COUNT = 5; //TODO: hardcoded?
+const APODS_COUNT = 5;
 
 interface ApodComponentProps {
   apod: Apod;
@@ -10,7 +10,7 @@ interface ApodComponentProps {
 
 const ApodComponent: FC<ApodComponentProps> = ({ apod }) => {
   return (
-    <div key={apod.url} className={styles.nasaApod}>
+    <div className={styles.nasaApod}>
       <h3>{apod.title}</h3>
       <div className={styles.nasaApodDetails}>
         <p>{apod.date}</p>
@@ -27,7 +27,7 @@ export default async function NasaPage() {
   return (
     <div className={styles.nasaContainer}>
       {apods.map((apod) => (
-        <ApodComponent apod={apod} />
+        <ApodComponent key={apod.url} apod={apod} />
       ))}
     </div>
   );

@@ -5,19 +5,10 @@ import styles from "./signup.module.css";
 import { SignUpForm } from "@/app/design/components/signup-form";
 
 export default function SignUpPage() {
-  const handleSignUp = async (email: string, password: string) => {
-    try {
-      // Handle sign up logic here
-      window.location.href = "/success";
-    } catch (error) {
-      window.location.href = "/error";
-    }
-  };
-
   return (
     <div className={styles.container}>
       <img
-        src="/signup_circles.svg"
+        src="/pictures/signup_circles.svg"
         alt="Geometric Background"
         className={styles.decoration}
       />
@@ -32,7 +23,7 @@ export default function SignUpPage() {
           </p>
         </div>
 
-        <SignUpForm onSubmit={handleSignUp} />
+        <SignUpForm />
       </main>
     </div>
   );

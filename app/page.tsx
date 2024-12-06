@@ -1,56 +1,60 @@
+import Footer from "@/lib/components/Footer";
+import Navbar from "@/lib/components/Navbar";
+import Link from "next/link";
 import Image from "next/image";
+import styles from "./Home.module.css";
 
 export default function Home() {
   return (
-    <main>
-      <div>
-        <h2>Welcome to the Product Jam Starter Kit</h2>
-        <p>
-          Feel free to look around, edit the source code and navigate to the
-          demos.
-        </p>
-        <Image
-          src="/huji.svg"
-          alt="HUJI Logo"
-          width="80"
-          height="80"
-          priority
-        />
-        <Image
-          src="/bezalel.svg"
-          alt="Bezalel Logo"
-          className="item"
-          width="80"
-          height="80"
-          priority
-        />
-        <div>
-          <h2>Lorem Ipsum</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-            faucibus sit amet nunc nec vehicula. Fusce ornare nec nulla non
-            imperdiet. Fusce vel sodales justo. Sed efficitur arcu lorem, at
-            iaculis odio ultricies et. Duis rutrum urna nec elit bibendum, sed
-            hendrerit nulla posuere. Vestibulum vestibulum, ante non tincidunt
-            posuere, dui arcu lacinia nisl, nec rhoncus massa arcu ac ipsum. Nam
-            congue interdum tortor, eu dignissim massa scelerisque vitae. Sed
-            ultricies bibendum congue. Praesent non magna id ligula maximus
-            luctus. Donec vitae nibh quis neque luctus sagittis et eget nunc.
-            Aliquam id ullamcorper lacus. Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit. Pellentesque habitant morbi tristique
-            senectus et netus et malesuada fames ac turpis egestas. Curabitur
-            tempor quis dolor a lacinia.
-          </p>
-          <ul>
-            <li>
-              Aliquam maximus tellus sed lacus venenatis, ac cursus eros mollis.
-            </li>
-            <li>In id ante sed sem pharetra molestie et vitae arcu.</li>
-            <li>Cras pharetra turpis at pretium elementum.</li>
-            <li>Donec ultrices felis vel lectus auctor iaculis.</li>
-          </ul>
+    <div className={styles.mainPageContainer}>
+      <Navbar />
+      <main className={styles.container}>
+        <div className={styles.textContainer}>
+          <h1 className={styles.title}>Sara Dauksz&apos;s Projects</h1>
+          <h3 className={styles.subtitle}>
+            Welcome to a collection of projects by Sara Dauksz.
+          </h3>
         </div>
-      </div>
-    </main>
+        <div className={styles.projectSection}>
+          <div className={styles.card}>
+            <Link href="/tic-tac-toe">
+              <Image
+                src="/tictactoe.png"
+                alt="TicTacToe Game"
+                width={300}
+                height={200}
+                className={styles.cardImage}
+              />
+            </Link>
+            <h4 className={styles.cardTitle}>TicTacToe Game</h4>
+          </div>
+          <div className={styles.card}>
+            <Link href="/nasa">
+              <Image
+                src="/nasa.png"
+                alt="NASA Exploration"
+                width={300}
+                height={200}
+                className={styles.cardImage}
+              />
+            </Link>
+            <h4 className={styles.cardTitle}>NASA Exploration</h4>
+          </div>
+          <div className={styles.card}>
+            <Link href="/design">
+              <Image
+                src="/design.png"
+                alt="Design Concepts"
+                width={300} //TODO: why need here too?
+                height={200}
+                className={styles.cardImage}
+              />
+            </Link>
+            <h4 className={styles.cardTitle}>Design Concepts</h4>
+          </div>
+        </div>
+      </main>
+      <Footer />
+    </div>
   );
 }

@@ -1,7 +1,10 @@
 import React from "react";
-import { BoardState, calculateWinner } from "@/app/tic-tac-toe/Utils";
-import styles from "@/app/tic-tac-toe/TicTacToe.module.css";
-import Square from "@/app/tic-tac-toe/Square";
+import styles from "@/app/(with-navbar)/tic-tac-toe/TicTacToe.module.css";
+import Square from "@/app/(with-navbar)/tic-tac-toe/Square";
+import {
+  BoardState,
+  calculateWinner,
+} from "@/app/(with-navbar)/tic-tac-toe/Utils";
 
 interface BoardProps {
   xIsNext: boolean;

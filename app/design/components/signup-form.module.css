@@ -4,7 +4,7 @@
     justify-content: flex-start;
     align-items: center;
     width: 100%;
-    gap: 34px;
+    gap: 25px;
 }
 
 .inputGroup {
@@ -72,15 +72,14 @@
 }
 
 .signupButton {
-    /*TODO: center like this?>*/
+    display: flex;
+    align-items: center;
     background-color: var(--color-black);
     color: var(--color-purple);
-    font-family: "Futura";
-    /*TODO: can put this globally somewhere else? >*/
-    width: 137px;
-    height: 38px;
-    font-size: 20px;
-    /*TODO: can put this globally somewhere else>*/
+    font-family: "Futura-Medium";
+    font-size: 24px;
+    padding: 0 25px 7.5px 25px;
+    font-weight: 500;
     border: 2px solid var(--color-purple);
     border-radius: 25px;
     cursor: pointer;
@@ -92,7 +91,6 @@
     color: var(--color-black);
 }
 
-/*TODO: need this container?? */
 .signin {
     text-align: center;
     color: var(--color-white);

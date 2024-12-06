@@ -1,9 +1,12 @@
 "use client";
 
 import React, { useState, useCallback, useEffect } from "react";
-import Board from "@/app/tic-tac-toe/Board";
-import styles from "@/app/tic-tac-toe/TicTacToe.module.css";
-import { BoardState, calculateWinner } from "@/app/tic-tac-toe/Utils";
+import Board from "@/app/(with-navbar)/tic-tac-toe/Board";
+import styles from "@/app/(with-navbar)/tic-tac-toe/TicTacToe.module.css";
+import {
+  BoardState,
+  calculateWinner,
+} from "@/app/(with-navbar)/tic-tac-toe/Utils";
 
 type WinnerCount = {
   X: number;

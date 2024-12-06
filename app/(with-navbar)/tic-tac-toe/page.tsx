@@ -1,5 +1,5 @@
-import Game from "@/app/tic-tac-toe/Game";
-import styles from "@/app/tic-tac-toe/TicTacToe.module.css";
+import Game from "@/app/(with-navbar)/tic-tac-toe/Game";
+import styles from "@/app/(with-navbar)/tic-tac-toe/TicTacToe.module.css";
 
 export default function TicTacToePage() {
   return (

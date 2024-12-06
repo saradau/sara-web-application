@@ -11,31 +11,38 @@
 
 @font-face {
     font-family: 'Futura';
-    src: url('/fonts/futura.ttf') format('ttf');
+    src: url('/fonts/futura.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Futura-Medium';
+    src: url('/fonts/futura-medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Futura-Bold';
+    src: url('/fonts/futura-bold.ttf') format('truetype');
 }
 
 .heading-1 {
-    font-family: 'Futura';
+    font-family: 'Futura-Medium';
     font-weight: 500;
     font-size: 36px;
-    line-height: 1;
-    /* TODO: need this? */
-    /* margin-bottom: 18px; */
+    line-height: 47.81px;
 }
 
 .heading-2 {
     font-family: 'Futura';
-    font-weight: bold;
+    font-weight: 700;
     font-size: 20px;
-    line-height: 1.4;
-    /* TODO: need this? */
-    /* margin-bottom: 28px; */
+    line-height: 26.58px;
 }
 
 .body-text {
-    font-family: 'Futura';
+    font-family: 'Futura-Medium';
     font-size: 16px;
-    line-height: 1.5;
+    line-height: 21.25px;
+    font-weight: 500;
 }
 
 .input {
