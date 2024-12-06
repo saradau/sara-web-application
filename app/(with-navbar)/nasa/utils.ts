@@ -5,7 +5,7 @@ export interface Apod {
   explanation: string;
 }
 
-const apiKey = process.env.NASA_API_KEY;
+const apiKey = process.env.NEXT_PUBLIC_NASA_API_KEY;
 const endpoint = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`;
 
 export async function getData(count: number): Promise<Apod[]> {

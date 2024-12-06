@@ -1,3 +1,5 @@
+"use client";
+
 import React, { FC, useEffect, useState } from "react";
 import { Apod, getData } from "./utils";
 import styles from "@/app/(with-navbar)/nasa/Nasa.module.css";
